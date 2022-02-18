@@ -46,7 +46,13 @@ export const Main = () => {
     console.log(studentsFind(students, s => s.name === "John"))
 
     function studentsFind (array, callback) {
-        
+        let newArr = []
+        for (let i = 0; i < array.length; i++) {
+            if (callback(array[i])) {
+                newArr.push(array[i])
+            }
+        }
+        return newArr
     }
 
 
