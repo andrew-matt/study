@@ -31,7 +31,10 @@ export function Todolist(props: TodolistPropsType) {
     }
 
     const addTask = () => {
-        props.addTask(newTaskTitle);
+        if (newTaskTitle.trim() === "") {
+            return
+        }
+        props.addTask(newTaskTitle.trim());
         setNewTaskTitle("")
     }
 
@@ -53,6 +56,7 @@ export function Todolist(props: TodolistPropsType) {
                 <input value={newTaskTitle}
                        onChange={onNewTitleChangeHandler}
                        onKeyPress={onKeyPressHandler}
+                       className="error"
                 />
                 <button onClick={addTask}>+</button>
             </div>
