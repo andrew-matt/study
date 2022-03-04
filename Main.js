@@ -1,64 +1,47 @@
-import React from 'react';
+const names = ["Bob", "Ted", "Alex", "Fred", 100, "bob"]
 
-export const Main = () => {
+//console.log([...names].sort())
+//console.log(names)
 
-    const students = [
-        {
-            name: "John",
-            age: 23,
-            isMarried: false,
-            scores: 120
-        },
-        {
-            name: "William",
-            age: 28,
-            isMarried: true,
-            scores: 100
-        },
-        {
-            name: "Ann",
-            age: 31,
-            isMarried: false,
-            scores: 130
-        },
-        {
-            name: "Dennis",
-            age: 34,
-            isMarried: true,
-            scores: 90
-        }
-    ];
+const numbers1 = [-1, 100, 0, -999, 33, 456, 321, 1111]
 
-/*/!*    console.log(students.filter(s => s.scores <= 100))*!/
-    console.log(studentsFilter(students, s => s.scores <= 100))
-
-    function studentsFilter (array, callback) {
-        let newArr = []
-        for (let i = 0; i < array.length; i++) {
-            if (callback(array[i]) === true) {
-                newArr.push(array[i])
-            }
-        }
-        return newArr
-    }*/
-
-/*    console.log(students.find(s => s.name === "John"))*/
-    console.log(studentsFind(students, s => s.name === "John"))
-
-    function studentsFind (array, callback) {
-        let newArr = []
-        for (let i = 0; i < array.length; i++) {
-            if (callback(array[i])) {
-                newArr.push(array[i])
-            }
-        }
-        return newArr
+const compareFunc = (a, b) => {
+    if (a <= b) {
+        return -1
+    } else {
+        return 1
     }
+}
 
+//console.log(numbers.sort(compareFunc))
+//console.log(numbers.sort((a, b) => b - a).reverse())
 
-    return (
-        <div>
-            Hello
-        </div>
-    );
-};
+let numbers = '45385593107843568'
+let numbersArr = numbers.split('')
+const func = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        if (Number(arr[i]) <= 5) {
+            arr[i] = '0'
+        } else {
+            arr[i] = '1'
+        }
+    }
+    return arr
+}
+
+func(numbersArr)
+let numbersStr = numbersArr.join('')
+//console.log(numbersStr)
+
+const students = [
+    {name: "bob", age: 22, isMarried: true, scores: 95},
+    {name: "Bob", age: 22, isMarried: true, scores: 95},
+    {name: "Alex", age: 23, isMarried: true, scores: 89},
+    {name: "Helge", age: 21, isMarried: true, scores: 89},
+    {name: "Nick", age: 20, isMarried: false, scores: 120},
+    {name: "John", age: 19, isMarried: false, scores: 121},
+    {name: "alex", age: 23, isMarried: true, scores: 89},
+]
+
+console.log(students.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1))
+console.log(students.sort((a, b) => b.age - a.age))
