@@ -48,7 +48,12 @@
         friends: ["Peter", "Steven", "William"]
     };
 
-    // let man2FullCopy =
+    let man2FullCopy = {
+        ...man2,
+        friends: [
+            ...man2.friends
+        ]
+    }
 
 
     // 5 Array of objects
@@ -59,7 +64,7 @@
     ];
 
 
-    let peopleFullCopy  // your code
+    let peopleFullCopy = people.map(obj => ({...obj}))
 
 
     // 6 Array of objects inside object
