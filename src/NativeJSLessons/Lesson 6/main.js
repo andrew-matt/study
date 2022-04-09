@@ -89,7 +89,8 @@ let sortedByName = deepCopyStudents.sort((a, b) =>
 console.log(sortedByName);
 
 //5a. Отсортируйте deepCopyStudents по успеваемости(лучший идёт первым)(sort)
-let sortedByScores = deepCopyStudents.sort((a, b) =>
+let deepCopyStudents2 = students.map(s => ({...s}))
+let sortedByScores = deepCopyStudents2.sort((a, b) =>
     b.scores - a.scores)
 console.log(sortedByScores);
 
@@ -100,16 +101,17 @@ console.log(bestStudents)
 //6a. Получите массив ("вырежьте") из трёх лучших студентов из массива deepCopyStudents (splice)
 //https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 
-let topStudents = deepCopyStudents.sort((a, b) =>
+let deepCopyStudents3 = students.map(s => ({...s}))
+let topStudents = deepCopyStudents3.sort((a, b) =>
     b.scores - a.scores).splice(0, 3)
 console.log(topStudents)
-console.log(deepCopyStudents)
+console.log(deepCopyStudents2)
 
 //6b. Объедините массивы deepCopyStudents и topStudents так,
 //чтоб сохранился порядок сортировки (spread-оператор || concat)
 let newDeepCopyStudents = [
     ...topStudents,
-    ...deepCopyStudents
+    ...deepCopyStudents2
 ]
 console.log(newDeepCopyStudents)
 
@@ -146,6 +148,7 @@ console.log(ann)
 //12. Найдите студента с самым высоким баллом (reduce)
 // - c помощью reduce
 // - *не испльзуя методы массивов и Math.max()*
+
 let bestStudent = students.reduce((acc, cur) =>
     acc.scores > cur.scores ? acc : cur)
 console.log(bestStudent)
@@ -162,7 +165,8 @@ console.log(scoresSum)
 // значением которого является массив имён всех остальных студентов из массива students,
 // за исключением собственного имени студента. Т.е. в друзьях у Боба Боба быть не должно.
 const addFriends = (students) => {
-   //..............................
+    return students.map(s => ({...s, friends: students.filter(st =>
+            st !== s).map(obj => obj.name)}))
 }
 console.log(addFriends(students));
 
