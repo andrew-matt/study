@@ -84,11 +84,13 @@ console.log(students[0]===deepCopyStudents[0]) // false
 // Вывод результатов - в консоль
 
 //5. Отсортируйте копию массива deepCopyStudents по алфавиту (sort)
-let sortedByName = deepCopyStudents.sort((a, b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0)
+let sortedByName = deepCopyStudents.sort((a, b) =>
+    a.name > b.name ? 1 : a.name < b.name ? -1 : 0)
 console.log(sortedByName);
 
 //5a. Отсортируйте deepCopyStudents по успеваемости(лучший идёт первым)(sort)
-let sortedByScores = deepCopyStudents.sort((a, b) => b.scores - a.scores)
+let sortedByScores = deepCopyStudents.sort((a, b) =>
+    b.scores - a.scores)
 console.log(sortedByScores);
 
 //6. Сформируйте массив студентов, у которых 100 и более баллов (filter)
@@ -98,55 +100,61 @@ console.log(bestStudents)
 //6a. Получите массив ("вырежьте") из трёх лучших студентов из массива deepCopyStudents (splice)
 //https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 
-let topStudents = deepCopyStudents.sort((a, b) => b.scores - a.scores).splice(0, 3)
+let topStudents = deepCopyStudents.sort((a, b) =>
+    b.scores - a.scores).splice(0, 3)
 console.log(topStudents)
 console.log(deepCopyStudents)
 
 //6b. Объедините массивы deepCopyStudents и topStudents так,
 //чтоб сохранился порядок сортировки (spread-оператор || concat)
-let newDeepCopyStudents;
+let newDeepCopyStudents = [
+    ...topStudents,
+    ...deepCopyStudents
+]
 console.log(newDeepCopyStudents)
 
 
 //7. Сформируйте массив холостых студентов (filter)
-let notMarriedStudents;
+let notMarriedStudents = students.filter(s => !s.isMarried)
 console.log(notMarriedStudents)
 
 //8. Сформируйте массив имён студентов (map)
-let studentsNames;
+let studentsNames = students.map(s => s.name)
 console.log(studentsNames)
 
 //8a. Сформируйте строку из имён студентов, разделённых
 // - пробелом (join)
 // - запятой (join)
-let nameWithSpace;
+let nameWithSpace = studentsNames.join(' ')
 console.log(nameWithSpace)
-let namesWithComma;
+let namesWithComma = studentsNames.join(', ')
 console.log(namesWithComma)
 
 //9. Добавьте всем студентам свойство "isStudent" со значением true (map)
-let trueStudents;
+let trueStudents = students.map(s => ({...s, isStudent: true}))
 console.log(trueStudents)
 
 //10. Nick женился. Выполните соответствующие преобразование массива students (map)
-let studentsWithMarriedNick;
+let studentsWithMarriedNick = students.map(s =>
+    s.name === 'Nick' ? {...s, isMarried: true} : {...s})
 console.log(studentsWithMarriedNick)
 
 //11. Найдите студента по имени Ann (find)
-let ann;
+let ann = students.find(s => s.name === 'Ann')
 console.log(ann)
 
 //12. Найдите студента с самым высоким баллом (reduce)
 // - c помощью reduce
 // - *не испльзуя методы массивов и Math.max()*
-let bestStudent;
+let bestStudent = students.reduce((acc, cur) =>
+    acc.scores > cur.scores ? acc : cur)
 console.log(bestStudent)
 
 //13. Найдите сумму баллов всех студентов (reduce)
 
 // И поднимаем руку!!!!
-
-let scoresSum;
+let scoresSum = students.reduce((acc, cur) =>
+    acc + cur.scores, 0)
 console.log(scoresSum)
 // 14. Д.З.:
 // Напишите функцию addFriends, которая принимает параметром массив students
