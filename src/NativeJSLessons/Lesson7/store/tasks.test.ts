@@ -1,4 +1,4 @@
-import {div, mult, sub, sum} from "./tasks";
+import {ActionType, div, mult, salaryReducer, StateType, sub, sum} from "./tasks";
 
 test("sum", () => {
     const salary: number = 800
@@ -17,4 +17,20 @@ test("div", () => {
 
 test("mult", () => {
     expect(mult(700, 3)).toBe(2100)
+})
+
+test("case SUM of salaryReducer", () => {
+    const salary: StateType = 800
+    const action: ActionType = {
+        type: "SUM",
+        n: 200
+    }
+    const testAction: ActionType = {
+        type: "TEST",
+        n: 200
+    }
+
+    const result = salaryReducer(salary, action)
+    expect(result).toBe(1000)
+    expect(salaryReducer(salary, testAction)).toBe(800)
 })
