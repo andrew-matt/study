@@ -34,3 +34,13 @@ test("case SUM of salaryReducer", () => {
     expect(result).toBe(1000)
     expect(salaryReducer(salary, testAction)).toBe(800)
 })
+
+test("case SUB of salaryReducer", () => {
+    const salary: StateType = 700
+    const action: ActionType = {
+        type: "SUB",
+        n: 50
+    }
+    const result = salaryReducer(salary, action)
+    expect(result).toBe(650)
+})
