@@ -17,14 +17,14 @@ export function sum(...nums: Array<number>): number {
 //  - "11", если треугольник обычный,
 //  - "00", если такого треугольника не существует.
 
-export function getTriangleType(a: number,b: number,c: number): string {
+export function getTriangleType(a: number, b: number, c: number): string {
     //...здесь пишем код.
     // В return стоит "заглушка", чтоб typescript не ругался
     if (a === b && a === c) {
         return "10"
     } else if ((a === b && a !== c) || (a === c && a !== b) || (b === c && b !== a)) {
         if (a < b + c && b < a + c && c < a + b)
-        return "01"
+            return "01"
     } else if (a !== b && b !== c) {
         return "11"
     }
@@ -35,7 +35,7 @@ export function getTriangleType(a: number,b: number,c: number): string {
 // 3. Функция getSum принимает параметром целое число и возвращает
 // сумму цифр этого числа
 
-export function getSum(number: number): number{
+export function getSum(number: number): number {
     //...здесь пишем код.
     // В return стоит "заглушка", чтоб typescript не ругался
     return number.toString().split('').map(el => +el).reduce((acc, cur) => acc + cur)
@@ -50,7 +50,14 @@ export function getSum(number: number): number{
 export const isEvenIndexSumGreater = (arr: Array<number>): boolean => {
     //...здесь пишем код.
     // В return стоит "заглушка", чтоб typescript не ругался
-    return true
+    let evenSum = 0
+    let oddSum = 0
+    for (let i = 0; i < arr.length; i++) {
+        i % 2 === 0
+            ? evenSum += arr[i]
+            : oddSum += arr[i]
+    }
+    return evenSum > oddSum
 }
 
 // 5. Функция getSquarePositiveIntegers принимает параметром массив чисел и возвращает новый массив. 
