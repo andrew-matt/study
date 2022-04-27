@@ -20,13 +20,14 @@ export function sum(...nums: Array<number>): number {
 export function getTriangleType(a: number, b: number, c: number): string {
     //...здесь пишем код.
     // В return стоит "заглушка", чтоб typescript не ругался
-    if (a === b && a === c) {
-        return "10"
-    } else if ((a === b && a !== c) || (a === c && a !== b) || (b === c && b !== a)) {
-        if (a < b + c && b < a + c && c < a + b)
+    if (a < b + c && b < a + c && c < a + b) {
+        if (a === b && a === c) {
+            return "10"
+        } else if ((a === b && a !== c) || (a === c && a !== b) || (b === c && b !== a)) {
             return "01"
-    } else if (a !== b && b !== c) {
-        return "11"
+        } else if (a !== b && b !== c) {
+            return "11"
+        }
     }
     return "00"
 }
