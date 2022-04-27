@@ -1,15 +1,18 @@
-let a = 5
+console.log(0)
 
-// eslint-disable-next-line no-undef
-$.ajax('https://repetitora.net/api/JS/Images')
+const resultBlock = document.querySelector("#result");
+const clickMeButton = document.querySelector("#click-me");
+const pageNumber = document.querySelector("#page-number");
+clickMeButton.addEventListener("click", makeRequest);
 
-a = 8
-console.log(a)
-//
-// const resultBlock = document.querySelector("#result");
-// const clickMeButton = document.querySelector("#click-me");
-// clickMeButton.addEventListener("click", makeRequest);
-//
-// function makeRequest() {
-//     resultBlock.innerHTML = 'result';
-// }
+function makeRequest() {
+    $.ajax(`https://repetitora.net/api/JS/Images?page=${pageNumber.value}&count=1`, {
+        success: function (data) {
+            data.forEach(el => {
+                const img = document.createElement('img')
+                img.src = el.thumbnail
+                document.querySelector('#result').appendChild(img)
+            })
+        }
+    })
+}
