@@ -16,6 +16,15 @@ function createTask(title) {
     return promise.then(response => response.data)
 }
 
+function updateTask(id, title) {
+    const promise = axios.put(`https://repetitora.net/api/JS/Tasks`, {
+        widgetId: 123,
+        taskId: id,
+        title: title
+    })
+    return promise.then(response => response.data)
+}
+
 function deleteTask(id) {
     const promise = axios.delete(`https://repetitora.net/api/JS/Tasks?widgetId=123&taskId=${id}`)
     return promise.then(response => response.data)

@@ -5,7 +5,12 @@ const pageNumberEl = document.querySelector("#page-number");
 const clickMeButton = document.querySelector("#click-me");
 const getTasksButton = document.querySelector("#get-tasks");
 const createTaskButton = document.querySelector("#create-task");
+const taskTitleEl = document.querySelector("#task-title");
 const deleteTaskButton = document.querySelector("#delete-task");
+const taskIdToDeleteEl = document.querySelector("#task-id-to-delete");
+const updateTaskButton = document.querySelector("#update-task");
+const taskNewTitleEl = document.querySelector("#task-new-title");
+const taskIdToChangeEl = document.querySelector("#task-id-to-change");
 
 clickMeButton.addEventListener("click", () => {
     const promise = getImages(pageNumberEl.value);
@@ -17,16 +22,20 @@ getTasksButton.addEventListener("click", () => {
     promise.then(onTasksReceived)
 });
 
-createTaskButton.addEventListener("click", () => {createTask('learn HTML')})
+createTaskButton.addEventListener("click", () => {createTask(taskTitleEl.value)})
 
-deleteTaskButton.addEventListener("click", () => {deleteTask("e0d3dd2a-570e-4ef5-b98e-ad0cfd23488b")})
+deleteTaskButton.addEventListener("click", () => {deleteTask(taskIdToDeleteEl.value)})
+
+updateTaskButton.addEventListener("click", () => {updateTask(taskIdToChangeEl.value, taskNewTitleEl.value)})
 
 function onTasksReceived(tasks) {
+    const result = document.querySelector('#tasks-result')
+    result.innerHTML = '';
     tasks.forEach(task => {
         const li = document.createElement('li');
         li.innerHTML = task.title;
         li.dataset.id = task.id
-        document.querySelector('#tasks-result').appendChild(li);
+        result.appendChild(li);
     });
 }
 
