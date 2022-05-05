@@ -4,6 +4,8 @@ const resultBlock = document.querySelector("#result");
 const pageNumberEl = document.querySelector("#page-number");
 const clickMeButton = document.querySelector("#click-me");
 const getTasksButton = document.querySelector("#get-tasks");
+const createTaskButton = document.querySelector("#create-task");
+const deleteTaskButton = document.querySelector("#delete-task");
 
 clickMeButton.addEventListener("click", () => {
     const promise = getImages(pageNumberEl.value);
@@ -15,14 +17,15 @@ getTasksButton.addEventListener("click", () => {
     promise.then(onTasksReceived)
 });
 
-createTasks('learn JS').then(data => {
-    console.log(data)
-})
+createTaskButton.addEventListener("click", () => {createTask('learn HTML')})
+
+deleteTaskButton.addEventListener("click", () => {deleteTask("e0d3dd2a-570e-4ef5-b98e-ad0cfd23488b")})
 
 function onTasksReceived(tasks) {
     tasks.forEach(task => {
         const li = document.createElement('li');
         li.innerHTML = task.title;
+        li.dataset.id = task.id
         document.querySelector('#tasks-result').appendChild(li);
     });
 }
