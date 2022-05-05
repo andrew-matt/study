@@ -16,14 +16,13 @@ getTasksButton.addEventListener("click", () => {
 });
 
 createTasks('learn JS').then(data => {
-    debugger
     console.log(data)
 })
 
 function onTasksReceived(tasks) {
     tasks.forEach(task => {
         const li = document.createElement('li');
-        li.innerHTML = task;
+        li.innerHTML = task.title;
         document.querySelector('#tasks-result').appendChild(li);
     });
 }
