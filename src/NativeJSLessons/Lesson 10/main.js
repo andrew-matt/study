@@ -1,10 +1,7 @@
 let p = new Promise((resolve, reject) => {
     setTimeout(() => {
-        const user = {name: "Alex"}
 
-        resolve(user)
-
-        reject({status: 400, message: 'Bad request'})
+        resolve(1)
 
     }, 1000)
 })
@@ -12,12 +9,22 @@ let p = new Promise((resolve, reject) => {
 p
     .then(
         (res) => {
-            console.log('Inside then first arg')
+            console.log(res)
+            return res
+        })
+    .then(
+        (res) => {
             console.log(res)
         })
-    .catch(
-        (err) => {
-            console.log('Inside then second arg')
-            console.log(err)
-        })
+
+let all = Promise.all([
+    new Promise(res => setTimeout(() => res(1), 3000)),
+    new Promise(res => setTimeout(() => res(2), 2000)),
+    new Promise(res => setTimeout(() => res(3), 1000)),
+])
+
+all.then(res => {
+    console.log(res)
+})
+
 
