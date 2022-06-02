@@ -1,29 +1,19 @@
-// function sayHi(name, surname) {
-//     console.log(`${name} ${surname}`)
-// }
-//
-// sayHi("Alex", "Viarhey")
+let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        const user = {name: "Alex"}
+    }, 1000)
 
- function counterCreator() {
+    reject({status: 400, message: 'Bad request'})
+})
 
-    let count = 0;
+p.then(
+    (res) => {
+        console.log('Inside then first arg')
+        console.log(res)
+    },
+    (err) => {
+        console.log('Inside then second arg')
+        console.log(err)
+    },
+)
 
-    return function () {
-        return count++
-    }
- }
-
-let counter = counterCreator();
-let counter2 = counterCreator();
-
-counter();
-counter();
-counter();
-counter();
-counter();
-counter2();
-counter2();
-counter2();
-
-console.log(counter())
-console.log(counter2())
