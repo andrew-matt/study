@@ -128,7 +128,7 @@ console.log("End");
 
 // Start Create promise End Handle promise timeout*/
 
-console.log(1)
+/*console.log(1)
 
 setTimeout(() => console.log(2));
 
@@ -146,4 +146,18 @@ setTimeout(() => console.log(8));
 
 console.log(9);
 
-// 1 9 3 6 7 5 2 8 4
+// 1 9 3 6 7 5 2 8 4*/
+
+console.log(1)
+console.log(2)
+let pr = new Promise(res => {
+    console.log(2.1)
+    res();
+    console.log(2.2)
+})
+
+pr.then(() => {
+    console.log(4)})
+console.log(3)
+
+// 1 2 2.1 2.2 3 4
