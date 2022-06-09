@@ -41,7 +41,7 @@ new Promise((resolve, reject) => {
 
 console.log(4)*/
 
-setTimeout(function () {
+/*setTimeout(function () {
     console.log("s1")
 }, 1);
 
@@ -73,4 +73,38 @@ test1();
 
 console.log("w2")
 
-// p1 p2 w1 a1 a3 w2 p3 a2 s1 s2
+// p1 p2 w1 a1 a3 w2 p3 a2 s1 s2*/
+
+console.log(1)
+
+setTimeout(() => {
+    console.log(2);
+    Promise.resolve().then(() => {
+        console.log(3)
+    });
+});
+
+new Promise((resolve, reject) => {
+    console.log(4)
+    resolve(5)
+}).then((data) => {
+    console.log(data);
+
+    Promise.resolve().then(() => {
+        console.log(6)
+    }).then(() => {
+        console.log(7)
+
+        setTimeout(() => {
+            console.log(8)
+        }, 0);
+    });
+})
+
+setTimeout(() => {
+    console.log(9)
+})
+
+console.log(10)
+
+// 1 4 10 5 6 7 2 3 9 8
