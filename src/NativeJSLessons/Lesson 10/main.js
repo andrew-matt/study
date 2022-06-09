@@ -75,7 +75,7 @@ console.log("w2")
 
 // p1 p2 w1 a1 a3 w2 p3 a2 s1 s2*/
 
-console.log(1)
+/*console.log(1)
 
 setTimeout(() => {
     console.log(2);
@@ -107,4 +107,23 @@ setTimeout(() => {
 
 console.log(10)
 
-// 1 4 10 5 6 7 2 3 9 8
+// 1 4 10 5 6 7 2 3 9 8*/
+
+console.log("Start")
+
+setTimeout(function timeout() {
+    console.log("timeout")
+}, 2)
+
+let p = new Promise(function (resolve, reject) {
+    console.log("Create promise");
+    resolve();
+});
+
+p.then(function () {
+    console.log("Handle promise");
+});
+
+console.log("End");
+
+// Start Create promise End Handle promise timeout
