@@ -25,3 +25,34 @@ class Samurai {
 console.log(Samurai.prototype) // есть
 console.log(Samurai.__proto__) // есть
 console.log(Samurai.__proto__ === Function.prototype) // true
+
+let shogun = new Samurai("John")
+console.log(shogun.prototype) // нет
+console.log(shogun.__proto__) // есть
+console.log(shogun.__proto__ === Samurai.prototype) // есть
+
+let shogun2 = new Samurai("Jack")
+console.log(shogun.__proto__ === shogun2.__proto__) // true
+
+const Component = (props) => {
+    return "<h1>I need help</h1>"
+}
+console.log(Component.prototype) // нет
+console.log(Component.__proto__) // есть
+console.log(Component.__proto__ === Function.prototype) // true
+
+function Samurai2(name) {
+    this.name = name;
+}
+
+Samurai2.prototype.hello = function () {
+    alert(this.name);
+}
+
+let shogun3 = new Samurai2("Helen");
+shogun3.hello(); // shogun3.__proto__ => Samurai2.prototype, и там находит hello
+
+let shogun4 = new Samurai2("Ann");
+shogun4.hello(); // shogun4.__proto__ => Samurai2.prototype, и там находит hello
+
+
