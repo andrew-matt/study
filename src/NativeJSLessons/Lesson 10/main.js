@@ -109,7 +109,7 @@ console.log(10)
 
 // 1 4 10 5 6 7 2 3 9 8*/
 
-console.log("Start")
+/*console.log("Start")
 
 setTimeout(function timeout() {
     console.log("timeout")
@@ -126,4 +126,24 @@ p.then(function () {
 
 console.log("End");
 
-// Start Create promise End Handle promise timeout
+// Start Create promise End Handle promise timeout*/
+
+console.log(1)
+
+setTimeout(() => console.log(2));
+
+Promise.resolve().then(() => console.log(3));
+
+Promise.resolve()
+    .then(() => setTimeout(() => console.log(4)))
+    .then(() => console.log(5))
+
+Promise.resolve().then(() => console.log(6));
+
+Promise.resolve().then(() => console.log(7));
+
+setTimeout(() => console.log(8));
+
+console.log(9);
+
+// 1 9 3 6 7 5 2 8 4
