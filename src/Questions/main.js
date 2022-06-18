@@ -16,7 +16,7 @@ const boundFunc = showAge.bind(man)
 
 boundFunc() // 33*/
 
-const man = { age: 33 }
+/*const man = { age: 33 }
 
 function showAge(a, b, c) {
     console.log(this.age)
@@ -27,4 +27,23 @@ function showAge(a, b, c) {
 
 showAge.call(man, 1, 2, 3) // 33, 1, 2, 3
 
-showAge.apply(man, [1, 2, 3]) // 33, 1, 2, 3
+showAge.apply(man, [1, 2, 3]) // 33, 1, 2, 3*/
+
+class API {
+    constructor(baseURL) {
+        this.baseURL = baseURL
+    }
+    get() {
+        // make request
+    }
+    update() {
+        // make request
+    }
+}
+
+class APIWithAlert extends API {
+    get() {
+        super.get()
+        alert('success')
+    }
+}
