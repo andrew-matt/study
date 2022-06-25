@@ -211,3 +211,28 @@ promise.then((data) => {
 //         console.log(data.website);
 //     })
 
+// let pr1 = doAfter(4); // один промис
+// let pr2 = doAfter(7); // второй промис
+//
+// pr1.then( () => console.log("pr1 resolved") ); // индивидуально подписываемся на каждый
+// pr2.then( () => console.log("pr2 resolved") );
+//
+// let aggregatedPromise = Promise.all([pr1, pr2]); // получаем общий промис
+//
+// aggregatedPromise.then( () => console.log("pr1 and pr2 resolved")); // сработает наш подписчик ТОЛЬКО когда все промисы, переданные в массиве в all будут resolved
+
+const getRandomAfter = (seconds) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(Math.random())
+        }, 1000 * seconds)
+    })
+}
+
+// getRandomAfter(4).then( number => console.log(`я получил ${number} спустя 4 секунды`))
+
+let promises = [getRandomAfter(1),getRandomAfter(2), getRandomAfter(3)];
+let commonPromise = Promise.all(promises);
+commonPromise.then( (data) => {
+    console.log(data)
+} );

@@ -7,6 +7,26 @@
     <title>JS</title>
 </head>
 <body>
+<script src="axios.js"></script>
 <script src="api.js"></script>
+
+<script>
+    api.getVacanciesCountFromMicrosoft()
+        .then(res => {
+            return res.data.vacancies
+        })
+        .then((vacancies) => {
+            api.getVacanciesCountFromGoogle()
+                .then(res => {
+                    return res.data.vacancies + vacancies
+                })
+                .then((vacancies) => {
+                    api.sendStudentsCountToItKamasutra(vacancies)
+                        .then(res => {
+                            console.log(res)
+                        });
+                })
+        })
+</script>
 </body>
 </html>
