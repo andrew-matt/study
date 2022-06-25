@@ -11,22 +11,56 @@
 <script src="api.js"></script>
 
 <script>
-    api.getVacanciesCountFromMicrosoft()
-        .then(res => {
-            return res.data.vacancies
-        })
-        .then((vacancies) => {
-            api.getVacanciesCountFromGoogle()
-                .then(res => {
-                    return res.data.vacancies + vacancies
-                })
-                .then((vacancies) => {
-                    api.sendStudentsCountToItKamasutra(vacancies)
-                        .then(res => {
-                            console.log(res)
-                        });
-                })
-        })
+    // let getVacancies = async () => {
+    //     let microsoftData = await api.getVacanciesCountFromMicrosoft()
+    //     let googleData = await api.getVacanciesCountFromGoogle()
+    //     let allVacancies = microsoftData.data.vacancies + googleData.data.vacancies
+    //     let resultData = await api.sendStudentsCountToItKamasutra(allVacancies)
+    //     console.log(resultData.data)
+    // }
+    //
+    // getVacancies()
+    // api.getVacanciesCountFromMicrosoft()
+    //     .then((res) => {
+    //         return res.data.vacancies
+    //     })
+    //     .then((microsoftVacancies) => {
+    //         return api.getVacanciesCountFromGoogle().then((res) => {
+    //             return res.data.vacancies + microsoftVacancies
+    //         })
+    //     })
+    //     .then((vacancies) => {
+    //         api.sendStudentsCountToItKamasutra(vacancies)
+    //             .then(res => {
+    //                 console.log(res.data)
+    //             });
+    //     })
+    //     .then(res => {
+    //         return res.data.vacancies
+    //     })
+    //     .then((vacancies) => {
+    //         api.getVacanciesCountFromGoogle()
+    //             .then(res => {
+    //                 return res.data.vacancies + vacancies
+    //             })
+    //             .then((vacancies) => {
+    //                 api.sendStudentsCountToItKamasutra(vacancies)
+    //                     .then(res => {
+    //                         console.log(res.data)
+    //                     });
+    //             })
+    //     })
+
+    const makeRequest = async () => {
+        let microsoft = await axios.get('microsoft')
+        console.log(microsoft.data)
+        let google = await axios.get('google')
+        console.log(google.data)
+        let itKamasutra = await axios.get('it-kamasutra')
+        console.log(itKamasutra.data)
+    }
+
+    makeRequest()
 </script>
 </body>
 </html>

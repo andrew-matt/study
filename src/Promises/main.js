@@ -146,13 +146,24 @@ promise.then((data) => {
 //
 // console.log('finish')
 
-// const doAfter = (seconds) => {
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve(seconds)
-//         }, 1000 * seconds)
-//     })
-// }
+const doAfter = (seconds) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(seconds)
+        }, 1000 * seconds)
+    })
+}
+
+let pr = doAfter(3)
+    .then(() => {
+        console.log('resolved')
+        return new Promise((res, rej) => {
+            res(123)
+        })
+    })
+    .then((name) => {
+        console.log('resolve value: ' + name)
+    })
 //
 // let callback1 = () => {
 //     console.log('Мой промис зарезолвился')
@@ -221,18 +232,18 @@ promise.then((data) => {
 //
 // aggregatedPromise.then( () => console.log("pr1 and pr2 resolved")); // сработает наш подписчик ТОЛЬКО когда все промисы, переданные в массиве в all будут resolved
 
-const getRandomAfter = (seconds) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(Math.random())
-        }, 1000 * seconds)
-    })
-}
-
-// getRandomAfter(4).then( number => console.log(`я получил ${number} спустя 4 секунды`))
-
-let promises = [getRandomAfter(1),getRandomAfter(2), getRandomAfter(3)];
-let commonPromise = Promise.all(promises);
-commonPromise.then( (data) => {
-    console.log(data)
-} );
+// const getRandomAfter = (seconds) => {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(Math.random())
+//         }, 1000 * seconds)
+//     })
+// }
+//
+// // getRandomAfter(4).then( number => console.log(`я получил ${number} спустя 4 секунды`))
+//
+// let promises = [getRandomAfter(1),getRandomAfter(2), getRandomAfter(3)];
+// let commonPromise = Promise.all(promises);
+// commonPromise.then( (data) => {
+//     console.log(data)
+// } );
