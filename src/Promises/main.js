@@ -63,13 +63,28 @@ let axios = {
     get() {
         let pr = new Promise((resolve, reject) => {
             setTimeout(() => {
-                reject('hi');
+                resolve('hi');
             }, 1000)
         });
         return pr
     }
 }
 
-axios.get()
+/*axios.get()
     .then((data) => console.log(data))
-    .catch((data) => console.error(data));
+    .then(() => console.log(1))
+    .then(() => console.log(2))
+    .then()
+    .then(() => console.log(3))
+    .then()
+    .then(() => console.log(4))
+    .catch((data) => console.error(data));*/
+
+let a = {
+    sum(a, b) {
+        console.log(a + b)
+        return this
+    }
+}
+
+a.sum(3, 6).sum(2, 4)
