@@ -145,3 +145,69 @@ promise.then((data) => {
 // })
 //
 // console.log('finish')
+
+// const doAfter = (seconds) => {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(seconds)
+//         }, 1000 * seconds)
+//     })
+// }
+//
+// let callback1 = () => {
+//     console.log('Мой промис зарезолвился')
+//     return 5
+// };
+// let callback2 = (num) => console.log('Мой промис тоже зарезолвился следом ' + num);
+//
+// let pr1 = doAfter(3);
+// let pr2 = pr1.then(callback1);
+// pr2.then(callback2);
+
+
+// doAfter(5).then((seconds) => console.log('я сработал через ' + seconds + ' секунд'))
+// doAfter(6).then((seconds) => console.log('я сработал через ' + seconds + ' секунд'))
+// doAfter(10).then((seconds) => console.log('я сработал через ' + seconds + ' секунд'))
+//
+// let promise3 = doAfter(3);
+// promise3.then( () => console.log('я сработал через 3 секунд') );
+// promise3.then( () => console.log('и я тоже следом сработал через 3 секунд') );
+// promise3.then( () => console.log('и я') );
+
+// let promise = doAfter(5)
+//
+// setTimeout(() => {
+//     promise.then(() => console.log('0'))
+// }, 0)
+//
+// setTimeout(() => {
+//     promise.then(() => console.log('1'))
+// }, 4000)
+
+// let promise = new Promise((resolve) => {
+//     let i = 0;
+//     setInterval(() => {
+//         i++;
+//         resolve(i);
+//     }, 5000)
+// })
+//
+// promise.then((res) => {
+//     console.log(res)})
+
+// let pr = new Promise( (resolve) => {
+//     let data = {
+//         cities: [{title: "Minsk"}, {title: "Kiev"}],
+//         website: "it-kamasutra.com"
+//     };
+//     resolve(data);
+// });
+//
+// pr.then( data => {
+//     console.log(data);
+//     return data
+// })
+//     .then( data => {
+//         console.log(data.website);
+//     })
+
