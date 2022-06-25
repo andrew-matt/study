@@ -59,16 +59,19 @@ pr.then(() => {
 
 console.log(pr)*/
 
-let axios = {
+/*let axios = {
     get() {
-        let pr = new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve('hi');
+                resolve({
+                    G: 2,
+                    g3: 4,
+                    message: 'YoYoYo'
+                });
             }, 1000)
         });
-        return pr
     }
-}
+}*/
 
 /*axios.get()
     .then((data) => console.log(data))
@@ -80,11 +83,65 @@ let axios = {
     .then(() => console.log(4))
     .catch((data) => console.error(data));*/
 
-let a = {
-    sum(a, b) {
-        console.log(a + b)
-        return this
-    }
-}
+// let a = {
+//     sum(a, b) {
+//         console.log(a + b)
+//         return {
+//             ...this
+//         }
+//     }
+// }
+//
+// a
+//     .sum(3, 6)
+//     .sum(2, 4)
+//
+// let pr1 = a.sum(1, 2)
+// let pr2 = a.sum(1, 2)
+// console.log(pr1 === pr2);
 
-a.sum(3, 6).sum(2, 4)
+/*
+let promise = axios.get();
+promise.then((data) => {
+    return data.message;
+})
+    .then((message) => {
+        console.log(message)
+        return message
+    })
+    .then((message2) => console.log(console))*/
+
+//     const newPromise = new Promise((resolve) => {
+//     setTimeout(() => {
+//         resolve(Math.random())
+//     }, 0)
+// })
+//
+// newPromise.then((number) => {
+//     console.log(number)
+// })
+
+// let myPromise = new Promise((resolve) => {
+//     setTimeout(() => {
+//         alert('myPromise')
+//         resolve()
+//     }, 1000)
+// })
+//
+// myPromise.then(() => {
+//     console.log('myPromise resolved')
+// })
+
+// let myPromise = new Promise((resolve, reject) => {
+//     resolve(Math.random())
+// })
+//
+// myPromise.then(number => {
+//     console.log('myPromise: ' + number)
+// })
+//
+// myPromise.then(number => {
+//     console.log('myPromise: ' + number)
+// })
+//
+// console.log('finish')
