@@ -28,7 +28,7 @@ counter2();
 console.log(counter())
 console.log(counter2())*/
 
-function wait(ms) {
+/*function wait(ms) {
     return new Promise((res) => {
         setTimeout(() => {
             return res()
@@ -45,5 +45,31 @@ async function run() {
     console.log(3)
 }
 
-run()
+run()*/
 
+/*let pr = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve();
+    }, 3000)
+});
+
+pr.then(() => {
+    console.log(pr)
+})
+
+console.log(pr)*/
+
+let axios = {
+    get() {
+        let pr = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject('hi');
+            }, 1000)
+        });
+        return pr
+    }
+}
+
+axios.get()
+    .then((data) => console.log(data))
+    .catch((data) => console.error(data));
