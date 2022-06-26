@@ -47,7 +47,7 @@ async function run() {
 
 run()*/
 
-/*let pr = new Promise((resolve, reject) => {
+let pr = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve();
     }, 3000)
@@ -57,7 +57,7 @@ pr.then(() => {
     console.log(pr)
 })
 
-console.log(pr)*/
+console.log(pr)
 
 /*let axios = {
     get() {
@@ -145,25 +145,25 @@ promise.then((data) => {
 // })
 //
 // console.log('finish')
-
-const doAfter = (seconds) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(seconds)
-        }, 1000 * seconds)
-    })
-}
-
-let pr = doAfter(3)
-    .then(() => {
-        console.log('resolved')
-        return new Promise((res, rej) => {
-            res(123)
-        })
-    })
-    .then((name) => {
-        console.log('resolve value: ' + name)
-    })
+//
+// const doAfter = (seconds) => {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(seconds)
+//         }, 1000 * seconds)
+//     })
+// }
+//
+// let pr = doAfter(3)
+//     .then(() => {
+//         console.log('resolved')
+//         return new Promise((res, rej) => {
+//             res(123)
+//         })
+//     })
+//     .then((name) => {
+//         console.log('resolve value: ' + name)
+//     })
 //
 // let callback1 = () => {
 //     console.log('Мой промис зарезолвился')

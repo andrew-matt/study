@@ -1,3 +1,4 @@
+/*
 let promise = new Promise(() => {
 }) // new Promise(…) – promise.__proto__ === Promise.prototype
 let man = {} // new Object(…) – man.__proto__ === Object.prototype
@@ -102,3 +103,21 @@ console.log( ITIncubator.__proto__ === Function.prototype)
 const count = 12
 console.log(count.__proto__ === Number.prototype)
 
+*/
+
+const user = {
+    _name: 'John',
+    _lastName: 'Doe',
+
+    get name() {
+        return this._name + ' ' + this._lastName
+    },
+
+    set name(value) {
+        this._name = value
+    },
+}
+
+console.log(user.name)
+
+user.name = 'Alex'
