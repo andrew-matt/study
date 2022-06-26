@@ -105,19 +105,39 @@ console.log(count.__proto__ === Number.prototype)
 
 */
 
-const user = {
-    _name: 'John',
-    _lastName: 'Doe',
+// const user = {
+//     _name: 'John',
+//     _lastName: 'Doe',
+//
+//     get name() {
+//         return this._name + ' ' + this._lastName
+//     },
+//
+//     set name(value) {
+//         this._name = value
+//     },
+// }
+//
+// console.log(user.name)
+//
+// user.name = 'Alex'
+//
+// console.log(user.name)
 
-    get name() {
-        return this._name + ' ' + this._lastName
-    },
-
-    set name(value) {
-        this._name = value
-    },
+const baseUser = {
+    login: 'default'
 }
 
-console.log(user.name)
+const superBaseUser = {
+    login: 'super default'
+}
 
-user.name = 'Alex'
+const alex = {
+    name: 'Alex'
+}
+
+superBaseUser.__proto__ = baseUser
+
+alex.__proto__ = superBaseUser
+
+console.log(alex.login)
