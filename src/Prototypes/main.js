@@ -158,3 +158,48 @@ console.log(count.__proto__ === Number.prototype)
 // let rules = [ (a, b) => a + b ];
 //
 // console.log(reduceByRules([2, 2], rules))
+//
+// function User(name) {
+//     this.name = name
+// }
+//
+// User.prototype.nickname = 'Default'
+//
+// User.prototype.showName = function() {
+//     console.log(this.name)
+// }
+//
+// const user1 = new User('Alex')
+// const user2 = new User('Hannah')
+// const user3 = new User('John')
+//
+// user1.showName()
+// user2.showName()
+// user3.showName()
+//
+// console.log(User.prototype === Function.prototype)
+//
+// console.log(user1.nickname)
+
+class BaseUser {
+
+    age = 18
+
+    constructor(name, age) {
+        this.name = name
+        // this.age = age
+    }
+    showName() {
+        console.log(this.name)
+    }
+    showAge() {
+        console.log(this.age)
+    }
+}
+
+const baseUser1 = new BaseUser('Alex', 25)
+const baseUser2 = new BaseUser('Alex')
+
+console.log(baseUser1);
+console.log(baseUser2);
+
