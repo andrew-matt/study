@@ -124,20 +124,37 @@ console.log(count.__proto__ === Number.prototype)
 //
 // console.log(user.name)
 
-const baseUser = {
-    login: 'default'
-}
+// const baseUser = {
+//     login: 'default'
+// }
+//
+// const superBaseUser = {
+//     login: 'super default'
+// }
+//
+// const alex = {
+//     name: 'Alex'
+// }
+//
+// superBaseUser.__proto__ = baseUser
+//
+// alex.__proto__ = superBaseUser
+//
+// console.log(alex.login)
 
-const superBaseUser = {
-    login: 'super default'
-}
-
-const alex = {
-    name: 'Alex'
-}
-
-superBaseUser.__proto__ = baseUser
-
-alex.__proto__ = superBaseUser
-
-console.log(alex.login)
+// function reduceByRules(numbers, rules) {
+//     let arr = numbers
+//     let rulesArr = rules
+//     while (arr.length > 2) {
+//         let a = rulesArr.shift()
+//         let b = arr.splice(0, 2)
+//         let c = b.reduce(a)
+//         arr.unshift(c)
+//         rulesArr.push(a)
+//     }
+//     return arr.reduce(rulesArr[0])
+// }
+//
+// let rules = [ (a, b) => a + b ];
+//
+// console.log(reduceByRules([2, 2], rules))
